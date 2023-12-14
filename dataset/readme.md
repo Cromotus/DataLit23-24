@@ -33,10 +33,10 @@ This table includes the data on the number of accidents that happened. They are 
 - **Year:** The Year in which the datapoints where recorded
 - **Total:** The total number of accidents that where recorded
 - **only property damage:** The number of accidents that only resulted in property damage without harm to people
-- **with damage to people:** The number of accidents that resulted in harm to people
-- **inside cities:** The number of accidents that happened inside cities
-- **outside cities without Autobahn:** The number of accidents that happend outside cites but not on the Autobahn
-- **on Autobah:** The number of accidents that happened on the Autobahn
+- **with damage to people:** The total number of accidents that resulted in harm to people
+- **inside cities:** The number of accidents with harm to people that happened inside cities
+- **outside cities without Autobahn:** The number of accidents with harm to people that happend outside cites but not on the Autobahn
+- **on Autobah:** The number of accidents with harm to people that happened on the Autobahn
 
 ## Injured Persons
 This table includes the data on the number of persons involved in accidents in different categories as well as their level of injurie.
