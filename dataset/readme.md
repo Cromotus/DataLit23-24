@@ -10,15 +10,15 @@ This table includes the number of registered vehicles, street kilometers and pop
 
 #### Collumn Descriptions
 - **Year:** The Year in which the datapoints where recorded
-- **total registered vehicles:** The total number of all registered vehicles (Does not match the sum of the other vecicle categories)
+- **total registered vehicles:** The total number of all registered vehicles (Does not match the sum of the other vehicle categories)
 - **registered cars:** Number of Registered cars
-- **registered trucks:** Number of Registerd trucks *(This is missing some data)*
-- **registered motorcycles:** Number of registerd motorcycles
+- **registered trucks:** Number of Registered trucks *(This is missing some data)*
+- **registered motorcycles:** Number of registered motorcycles
 - **other registered vehicles:** Number of registered vehicles that do not fall in one of the above categories *(This is missing some data)*
 - **total street km:** The Sum of the Length of all streets in Germany
-- **street km inside cities:** The sum of the length of all streets inside of city limits *(This is missing some data)*
+- **street km inside cities:** The sum of the length of all streets inside city limits *(This is missing some data)*
 - **street km outside cities without Autobahn:** The sum of the length of all streets outside cities excluding the Autobahn *(This is missing some data)*
-- **street km Autobahn:** The sum of the lenth of all Autobahns
+- **street km Autobahn:** The sum of the length of all Autobahns
 - **total population:** The total population of Germany
 - **population under 15:** The number of people under 15
 - **population 15-18:** The number of people between 15 and 18
@@ -35,17 +35,17 @@ This table includes the data on the number of accidents that happened. They are 
 - **only property damage:** The number of accidents that only resulted in property damage without harm to people
 - **with damage to people:** The total number of accidents that resulted in harm to people
 - **inside cities:** The number of accidents with harm to people that happened inside cities
-- **outside cities without Autobahn:** The number of accidents with harm to people that happend outside cites but not on the Autobahn
-- **on Autobah:** The number of accidents with harm to people that happened on the Autobahn
+- **outside cities without Autobahn:** The number of accidents with harm to people that happened outside cites but not on the Autobahn
+- **on Autobahn:** The number of accidents with harm to people that happened on the Autobahn
 
 ## Injured Persons
-This table includes the data on the number of persons involved in accidents in different categories as well as their level of injurie.
+This table includes the data on the number of persons involved in accidents in different categories as well as their level of injuries.
 
 #### Collumn Descriptions
 - **Year:** The Year in which the datapoints where recorded
 - **Total:** Total number of persons injured in an accident in the given year.
 - **lightly injured:** Number of persons involved in accidents that had light injuries
-- **severly injured:** Number of persons involved in accidents that had severe injuries
+- **severely injured:** Number of persons involved in accidents that had severe injuries
 - **dead:** Number of persons involved in accidents that died because of the accident
 
 ## Injured Persons 2
@@ -72,14 +72,14 @@ This table includes data about how many drivers died in different categories
 - **female car driver:** Number of female car drivers that died
 - **female car passenger:** Number of female car passengers that died
 - **female pedestrian:** Number of female pedestrians that died
-- **under 15:** Numer of people younger then 15 that died
+- **under 15:** Numer of people younger than 15 that died
 - **15 - 18:** Number of people between 15 and 18 that died
-- **18 -25:** Number of people between 18 and 25 that died
+- **18 - 25:** Number of people between 18 and 25 that died
 - **25 - 65:** Number of people between 25 and 65 that died
-- **65 and over:** Numer of people 65 and older that died
+- **65 and over:** Number of people 65 and older that died
 - **inside cities:** Number of people that died inside cities
 - **outside cities excl Autobahn:** Number of people that died outside of cities not including the Autobahn
-- **Autobah:** Number of people that died on the Autobahn
+- **Autobahn:** Number of people that died on the Autobahn
 
 ## Involved Persons
 This table includes data about how many persons from different categories were involved in accidents
