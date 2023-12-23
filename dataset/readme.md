@@ -48,6 +48,9 @@ This table includes the data on the number of persons involved in accidents in d
 - **severly injured:** Number of persons involved in accidents that had severe injuries
 - **dead:** Number of persons involved in accidents that died because of the accident
 
+## Injured Persons 2
+This table includes the same data as the "Injured Persons" Table. The difference is that this table has the data for a longer timeframe but no differentiation between light and severe injuries
+
 ## Deaths
 This table includes data about how many drivers died in different categories
 
