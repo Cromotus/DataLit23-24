@@ -114,7 +114,34 @@ This table includes data about how many persons from different categories were t
 - **car 25 - 65:** Number of drivers between 25 and 65 as main causers
 - **car over 65:** Number of drivers over 65 as main causers
 
-## 
+## Accident Causes
+This table contains numbers on what caused the accidents that people where harmed in.
+
+#### Collumn Descriptions
+- **Year:** The Year in which the datapoints where recorded.
+- **Rain:** How many accidents were caused by rain
+- **Snow/Ice:** How many accidents were caused by Snow or Ice
+- **technical defects:** How many accidents were caused by technical defects
+- **misconduct involved total:** Total number of accidents that happened because of a misconduct of one or more of the participants
+- **misconduct Trucks:** Accidents that happened because of a misconduct by a truck driver
+- **misconduct cars:** Accidents that happened because of a misconduct by a car driver
+- **misconduct motorbikes:** Accidents that happened because of a misconduct by a motorbike driver
+- **misconduct bikes:** Accidents that happened because of a misconduct by a cyclist
+- **misconduct pedestrians:** Accidents that happened because of a misconduct by a pedestrian
+- **driver misconduct total:** Total number of accidents that happened because of a misconduct by the driver of a Vehicle
+- **alcohol:** Number of alcohol related misconducts
+- **speed:** Number of accidents that happened because the driving speed wasn't adjusted to the road conditions/limits
+- **distance:** Number of accidents that happened because the distance to the car infront was insuficient
+- **right of way:** Number of accidents that happened because the right of way rules where not followed
+- **turning:** Accidents that were related to turning, reversing, etc.
+- **car driver misconduct:** Same as "driver misconduct total" but only for cars instead of all vehicles.
+- **car alcohol:** Same as "alcohol" but only for cars instead of all vehicles.
+- **car speed:** Same as "speed" but only for cars instead of all vehicles.
+- **car distance:** Same as "distance" but only for cars instead of all vehicles.
+- **car right of way:** Same as "right of way" but only for cars instead of all vehicles.
+- **car turning:** Same as "turning" but only for cars instead of all vehicles.
+
+## Accidents by State
 This table contains data on the numbers of accidents that happend in each state in Germany
 
 #### Collumn Descriptions
