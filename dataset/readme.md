@@ -113,3 +113,10 @@ This table includes data about how many persons from different categories were t
 - **car 18 - 25:** Number of drivers between 18 and 25 as main causers
 - **car 25 - 65:** Number of drivers between 25 and 65 as main causers
 - **car over 65:** Number of drivers over 65 as main causers
+
+## 
+This table contains data on the numbers of accidents that happend in each state in Germany
+
+#### Collumn Descriptions
+- **Year:** The Year in which the datapoints where recorded. *!!There are more years here then in previous tables!!*
+- **Baden- Württemberg to Thüringen:** The number of accident that happend in the respective state.
