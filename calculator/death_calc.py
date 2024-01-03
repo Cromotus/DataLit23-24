@@ -3,6 +3,7 @@ import json
 import numpy as np
 from matplotlib import pyplot as plt
 from General_Calculator import *
+from DataLoader import DataContainer
 
 
 def get_save_key_selection(question: str, dictionary: dict) -> str:
@@ -21,8 +22,7 @@ def get_save_key_selection(question: str, dictionary: dict) -> str:
 
 class DeathCalculator:
     def __init__(self, reference_path: str, deaths_path: str, hierarchy_path: str):
-        self.reference = pandas.read_csv(reference_path, sep=';')
-        self.deaths = pandas.read_csv(deaths_path, sep=';')
+        self.data_container = DataContainer()
         hierarchy_file = open(hierarchy_path)
         hierarchy = json.load(hierarchy_file)
         self.deaths_hierarchy = hierarchy.get("Deaths -")
@@ -54,9 +54,9 @@ class DeathCalculator:
 
         # Here the probabilities from the dataset are put into UiInterface
         # First into the ProbPair class
-        age_probability = ProbPair(self.deaths[age_key], self.reference[self.deaths_hierarchy.get("age -").get(age_key).get("reference")])
-        vehicle_probability = ProbPair(self.deaths[vehicle_key], self.reference[self.deaths_hierarchy.get("vehicle -").get(vehicle_key).get("reference")])
-        sex_probability = ProbPair(self.deaths[sex_key], self.reference[self.deaths_hierarchy.get("sex -").get(sex_key).get("reference")])
+        age_probability = ProbPair(self.data_container.deaths[age_key], self.data_container.reference[self.deaths_hierarchy.get("age -").get(age_key).get("reference")])
+        vehicle_probability = ProbPair(self.data_container.deaths[vehicle_key], self.data_container.reference[self.deaths_hierarchy.get("vehicle -").get(vehicle_key).get("reference")])
+        sex_probability = ProbPair(self.data_container.deaths[sex_key], self.data_container.reference[self.deaths_hierarchy.get("sex -").get(sex_key).get("reference")])
 
         # And then the probabilities are combined with AndCombined, because they are from different categories.
         combined_prob = AndCombination([age_probability, vehicle_probability, sex_probability])
