@@ -10,6 +10,17 @@
                 "pedestrian":{"option_text":"By foot","restricts_questions":[],"restricts_options":[],"resulting_dataset":"TODO"}
             }
         },
+        "age_group":{
+            "display_text":"Your age groupe",
+            "skippable":"false",
+            "answer_options":{
+                "u15":{"option_text":"under 15","restricts_questions":[],"restricts_options":[],"resulting_dataset":""},
+                "15-18":{"option_text":"15-18","restricts_questions":[],"restricts_options":[],"resulting_dataset":""},
+                "18-25":{"option_text":"18-25","restricts_questions":[],"restricts_options":[],"resulting_dataset":""},
+                "25-65":{"option_text":"25-65","restricts_questions":[],"restricts_options":[],"resulting_dataset":""},
+                "o65":{"option_text":"older then 65","restricts_questions":[],"restricts_options":[],"resulting_dataset":""}
+            }
+        },
         "sex":{
             "display_text":"Your sex",
             "skippable":"true",
@@ -44,6 +55,29 @@
                 "car right of way":{"option_text":" Same as \"right of way\" but only for cars instead of all vehicles.","restricts_questions":[],"restricts_options":[],"resulting_dataset":"TODO"},
                 "car turning":{"option_text":" Same as \"turning\" but only for cars instead of all vehicles.","restricts_questions":[],"restricts_options":[],"resulting_dataset":"TODO"}
             }
+        },
+        "damage":{
+            "display_text":"Result of the accident",
+            "skippable":"true",
+            "answer_options":{
+                "only_property_damage":{"option_text":"only property damage","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Accident Numbers.csv"},
+                "damage_to_people":{"option_text":"damage to people","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Accident Numbers.csv"},
+                "lightly_injured":{"option_text":"damage to people","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[w],"resulting_dataset":"Injured Persons.csv"},
+                "severly_injured":{"option_text":"damage to people","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Injured Persons.csv"},
+                "dead":{"option_text":"death","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Injured Persons.csv"}
+            }
+        },
+        "location":{
+            "display_text":"Where did the accident happen",
+            "skippable":"true",
+            "answer_options":{
+                "cities":{"option_text":"inside cities","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Accident Numbers.csv"},
+                "outside_cities":{"option_text":"outside cities (without Autobahn)","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Accident Numbers.csv"},
+                "autobahn":{"option_text":"on Autobah","restricts_questions":["accident_cause","main_causers", "sex"],"restricts_options":[],"resulting_dataset":"Accident Numbers.csv"}
+            }
+        },
+        "deaths":{
+            "__big-question":"discuss in next meeting"
         }
     }
 }
