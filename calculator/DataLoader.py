@@ -6,17 +6,17 @@ import os
 class DataContainer:
     def __init__(self, dataset_folder_path="../dataset/csv", start_year=1991, end_year=2021):
         self.reference = interpolate_gap(pandas.read_csv(os.path.join(dataset_folder_path, "Reference Numbers.csv"),
-                                         sep=';', dtype=np.float64), start_year, end_year)
+                                         sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
         self.deaths = interpolate_gap(pandas.read_csv(os.path.join(dataset_folder_path, "Deaths.csv"),
-                                                         sep=';', dtype=np.float64), start_year, end_year)
+                                                         sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
         self.accident_numbers = interpolate_gap(pandas.read_csv(os.path.join(dataset_folder_path, "Accident Numbers.csv"),
-                                                         sep=';', dtype=np.float64), start_year, end_year)
+                                                         sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
         self.injured = interpolate_gap(pandas.read_csv(os.path.join(dataset_folder_path, "Injured Persons.csv"),
-                                                         sep=';', dtype=np.float64), start_year, end_year)
+                                                         sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
         self.involved = interpolate_gap(pandas.read_csv(os.path.join(dataset_folder_path, "Involved Persons.csv"),
-                                                         sep=';', dtype=np.float64), start_year, end_year)
+                                                         sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
         self.main_causer = interpolate_gap(pandas.read_csv(os.path.join(dataset_folder_path, "Main Causer.csv"),
-                                                         sep=';', dtype=np.float64), start_year, end_year)
+                                                         sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
 
 
 def interpolate_gap(df: pandas.DataFrame, start_year: int, end_year: int):
