@@ -43,10 +43,10 @@ class Filters:
         for question in dict(self.filter_data):#iterate on copy to allow modifications
             if question in allowed_questions[:]:
                 question_allowed_options = answer_option["allowed_options"]
-                if question not in question_allowed_options:
+                if bool(question_allowed_options) or question not in question_allowed_options:
                     continue
                 allowed_options = question_allowed_options[question]
-                for option_key, option_details in question[answer_options].items():
+                for option_key, option_details in question["answer_options"].items():
                     if option_key not in allowed_options:
                         del question[answer_options][option_key]
             else:
@@ -73,8 +73,3 @@ class AnswerOption:
         self.option_text=option_text
     def __str__(self):
         return "AnswerOption(\nkey = "+self.option_key+", \ntext= "+self.option_text+")"
-
-test = Filters()
-print(test.has_next_question())
-test.set_question_answer("damage","lightly_injured")
-print(test)
