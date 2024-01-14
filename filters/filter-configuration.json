@@ -4,11 +4,11 @@
             "display_text":"Result of the accident",
             "skippable":"true",
             "answer_options":{
-                "only_property_damage":{"option_text":"only property damage","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
-                "damage_to_people":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
-                "lightly_injured":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Injured Persons.csv"},
-                "severly_injured":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Injured Persons.csv"},
-                "dead":{"option_text":"death","allowed_questions":["vehicle_type", "deaths", "age_group"],"allowed_options":{},"resulting_dataset":"Deaths.csv"}
+                "only property damage":{"option_text":"only property damage","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
+                "damage to people":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
+                "lightly injured":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Injured Persons.csv"},
+                "severly injured":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Injured Persons.csv"},
+                "dead":{"option_text":"death","allowed_questions":["vehicle_type", "death", "age_group"],"allowed_options":{},"resulting_dataset":"None"}
             }
         },
         "vehicle_type":{

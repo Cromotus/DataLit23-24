@@ -26,16 +26,15 @@ class Filters:
                 option = AnswerOption(option_key,option_attributes["option_text"])
                 answer_options.append(option)
             return Question(key, value["display_text"], answer_options)
-            
+
     # setQuestionAnswer(message_key, option_key): void
     def set_question_answer(self, message_key, option_key):
         self.selected_options.append((message_key,option_key))
+        print(self.filter_data)
         current_question = self.filter_data[message_key]
         del self.filter_data[message_key]
-        if(option_key == "skip"):
+        if option_key == "skip":
             return
-        
-
         # remove options based on answer
         answer_options = current_question["answer_options"]
         answer_option = answer_options[option_key]
@@ -52,12 +51,28 @@ class Filters:
             else:
                 del self.filter_data[question]
 
+    #return nothing if theres no resulting dataset or (resulting dataset name,colum name)
+    def get_resulting_dataset(self):
+        for message_key, option_key in self.selected_options:
+            resulting_dataset = self.get_resulting_dataset_for_options(message_key,option_key)
+            if resulting_dataset:
+                return resulting_dataset
+
+    #return nothing if theres no resulting dataset or (resulting dataset name,colum name)
+    def get_resulting_dataset_for_options(self, message_key, option_key):
+        if not self.initial_filter_data or not self.initial_filter_data["filters"]:
+            return
+        filters = self.initial_filter_data["filters"]
+        if filters[message_key]:
+            answer_options = filters[message_key]["answer_options"]
+            if answer_options and answer_options[option_key] and answer_options[option_key]["resulting_dataset"]!="None":
+                return (answer_options[option_key]["resulting_dataset"],option_key)
+
     def get_all_filters(self):
         return (self.selected_options,self.filter_data)
-    
+
     def __str__(self):
-        return "\"filter\":{\"selected_options\"="+str(self.selected_options)+",\"filter_data="+str(self.filter_data)+",\"initial_filter_data\"="+str(self.initial_filter_data)+"}"
-            
+        return "\"filter\":{\"selected_options\"="+str(self.selected_options)+",\"filter_data="+str(self.filter_data)+",\"initial_filter_data\"="+str(self.initial_filter_data)+"}"          
 
 class Question:
     def __init__(self,question_key,question_text,question_options):
