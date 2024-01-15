@@ -1,7 +1,7 @@
 import json
 
 class Filters:
-    def __init__(self, config_path="./filters/filter-configuration.json"):
+    def __init__(self, config_path="./calculator/filter-configuration.json"):
         # Load from json
         configuration_file_path=config_path
         with open(configuration_file_path) as filter_data_json_file:
@@ -30,7 +30,7 @@ class Filters:
     # setQuestionAnswer(message_key, option_key): void
     def set_question_answer(self, message_key, option_key):
         self.selected_options.append((message_key,option_key))
-        print(self.filter_data)
+        # print(self.filter_data)
         current_question = self.filter_data[message_key]
         del self.filter_data[message_key]
         if option_key == "skip":
