@@ -1,10 +1,10 @@
 import json
 
 class Filters:
-    def __init__(self):
+    def __init__(self, config_path="./filters/filter-configuration.json"):
         # Load from json
-        configuartion_file_path="./filters/filter-configuration.json"
-        with open(configuartion_file_path) as filter_data_json_file:
+        configuration_file_path=config_path
+        with open(configuration_file_path) as filter_data_json_file:
             # keep initial data for reset
             self.initial_filter_data = json.load(filter_data_json_file)
             self.reset()
