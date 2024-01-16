@@ -1,7 +1,7 @@
 import json
 
 class Filters:
-    def __init__(self, config_path="./calculator/filter-configuration.json"):
+    def __init__(self, config_path="./dataset/filter-configuration.json"):
         # Load from json
         configuration_file_path=config_path
         with open(configuration_file_path) as filter_data_json_file:

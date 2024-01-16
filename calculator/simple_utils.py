@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 
 
 def start_text_ui():
-    filters_container = Filters(config_path="../dataset/csv/filter-configuration.json")
+    filters_container = Filters(config_path="../dataset/filter-configuration.json")
     data_container = DataContainer()
 
     while filters_container.has_next_question():
