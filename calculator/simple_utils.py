@@ -2,6 +2,8 @@ from filters import Filters
 from DataLoader import DataContainer
 from General_Calculator import ProbPair
 from matplotlib import pyplot as plt
+from tueplots import bundles
+from tueplots.constants.color import rgb
 
 
 def start_text_ui():
@@ -19,8 +21,14 @@ def start_text_ui():
 
 
 def quick_plot(years, data):
+    plt.rcParams.update(bundles.icml2022(column="full", usetex=False))
+
     fig, ax = plt.subplots()
-    ax.plot(years, data)
+    fig.suptitle("Probability of first accident")
+    ax.plot(years, data, color=rgb.tue_red)
+    ax.grid()
+    ax.set_ylabel("probability of first accident")
+    ax.set_xlabel("Year")
     plt.show()
 
 
