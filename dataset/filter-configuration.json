@@ -5,7 +5,7 @@
             "skippable":"true",
             "answer_options":{
                 "only property damage":{"option_text":"only property damage","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
-                "damage to people":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
+                "with damage to people":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
                 "lightly injured":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Injured Persons.csv"},
                 "severely injured":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Injured Persons.csv"},
                 "dead":{"option_text":"death","allowed_questions":["vehicle_type", "death", "age_group"],"allowed_options":{},"resulting_dataset":"None"}
