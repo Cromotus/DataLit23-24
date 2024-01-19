@@ -69,12 +69,12 @@ class AndCombination(UiInterface):
         return ProbPair(new_abs_freq, new_reference)
 
 
-def calculate_first_accident_prob(prob_combination: UiInterface):
+def calculate_first_accident_prob(prob_combination: UiInterface, start_year=1991, end_year=2021):
     prob_pair: ProbPair = prob_combination.return_value()
     yearly_prob = prob_pair.return_relative_prob()
 
     prob_accident = np.array(
-        [np.prod(1 - yearly_prob[:year_index]) * yearly_prob[year_index] for year_index in range(len(yearly_prob))]
+        [np.prod(1 - yearly_prob[(start_year-1991):year_index]) * yearly_prob[year_index] for year_index in range(end_year - start_year + 1)]
     )
 
     return prob_accident
