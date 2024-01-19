@@ -22,7 +22,7 @@
             }
         },
         "age_group":{
-            "display_text":"Your age groupe",
+            "display_text":"Your age group",
             "skippable":"true",
             "answer_options":{
                 "u15":{"option_text":"under 15","allowed_questions":["death"],"allowed_options":{"death":["under 15"]},"resulting_dataset":"None"},
@@ -53,7 +53,7 @@
                 "female car driver":{"option_text":"Number of female car drivers that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
                 "female car passenger":{"option_text":"Number of female car passengers that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
                 "female pedestrian":{"option_text":"Number of female pedestrians that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
-                "under 15":{"option_text":"Numer of people younger than 15 that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
+                "under 15":{"option_text":"Number of people younger than 15 that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
                 "15 - 18":{"option_text":"Number of people between 15 and 18 that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
                 "18 - 25":{"option_text":"Number of people between 18 and 25 that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
                 "25 - 65":{"option_text":"Number of people between 25 and 65 that died","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Deaths.csv"},
