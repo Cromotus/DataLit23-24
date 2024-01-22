@@ -1,11 +1,11 @@
 # Data Documentation
-The dataset is a subset of the data from [this](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-pdf-5462403.html) DESTATIS dataset.
-It was transformed for better machine readability.
+The dataset is mostly a subset of the data from [this](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Verkehrsunfaelle/Publikationen/Downloads-Verkehrsunfaelle/verkehrsunfaelle-zeitreihen-pdf-5462403.html) DESTATIS dataset.
+There is also a table from [here](https://www.statistikportal.de/de/ugrdl/ergebnisse/verkehr-und-umwelt/kfz).
+The Data from both sources was transformed into csv files for better machine readability.
 All tables include the year to match them.
 
-The Data is provided as csv files.
-
-## Reference numbers
+## DESTATIS Dataset:
+### Reference numbers
 This table includes the number of registered vehicles, street kilometers and population.
 
 #### Collumn Descriptions
@@ -26,7 +26,7 @@ This table includes the number of registered vehicles, street kilometers and pop
 - **population 25-65:** The number of people between 25 and 65
 - **population over 65:** The number of people between older then 65
 
-## Accident Numbers
+### Accident Numbers
 This table includes the data on the number of accidents that happened. They are also divided into different categories.
 
 #### Collumn Descriptions
@@ -38,7 +38,7 @@ This table includes the data on the number of accidents that happened. They are 
 - **outside cities without Autobahn:** The number of accidents with harm to people that happened outside cites but not on the Autobahn
 - **on Autobahn:** The number of accidents with harm to people that happened on the Autobahn
 
-## Injured Persons
+### Injured Persons
 This table includes the data on the number of persons involved in accidents in different categories as well as their level of injuries.
 
 #### Collumn Descriptions
@@ -48,10 +48,10 @@ This table includes the data on the number of persons involved in accidents in d
 - **severely injured:** Number of persons involved in accidents that had severe injuries
 - **dead:** Number of persons involved in accidents that died because of the accident
 
-## Injured Persons 2
+### Injured Persons 2
 This table includes the same data as the "Injured Persons" Table. The difference is that this table has the data for a longer timeframe but no differentiation between light and severe injuries
 
-## Deaths
+### Deaths
 This table includes data about how many drivers died in different categories
 
 #### Collumn Descriptions
@@ -81,7 +81,7 @@ This table includes data about how many drivers died in different categories
 - **outside cities excl Autobahn:** Number of people that died outside of cities not including the Autobahn
 - **Autobahn:** Number of people that died on the Autobahn
 
-## Involved Persons
+### Involved Persons
 This table includes data about how many persons from different categories were involved in accidents
 
 #### Collumn Descriptions
@@ -99,7 +99,7 @@ This table includes data about how many persons from different categories were i
 - **car 25 - 65:** Number of drivers between 25 and 65 involved in accidents
 - **car over 65:** Number of drivers over 65 involved in accidents
 
-## Main Causers
+### Main Causers
 This table includes data about how many persons from different categories were the main causer of an accident
 
 #### Collumn Descriptions
@@ -117,7 +117,7 @@ This table includes data about how many persons from different categories were t
 - **car 25 - 65:** Number of drivers between 25 and 65 as main causers
 - **car over 65:** Number of drivers over 65 as main causers
 
-## Accident Causes
+### Accident Causes
 This table contains numbers on what caused the accidents that people where harmed in.
 
 #### Collumn Descriptions
@@ -144,9 +144,20 @@ This table contains numbers on what caused the accidents that people where harme
 - **car right of way:** Same as "right of way" but only for cars instead of all vehicles.
 - **car turning:** Same as "turning" but only for cars instead of all vehicles.
 
-## Accidents by State
+### Accidents by State
 This table contains data on the numbers of accidents that happend in each state in Germany
 
 #### Collumn Descriptions
 - **Year:** The Year in which the datapoints where recorded. *!!There are more years here then in previous tables!!*
 - **Baden- Württemberg to Thüringen:** The number of accident that happend in the respective state.
+
+## Statistikportal:
+### Registered Vehicles by State
+This table contains data on the number of vehicles registered in each state in Germany
+
+#### Collumn Descriptions
+- **Year:** The Year in which the datapoints where recorded. *Data isn't availabe for all years*
+- **Baden- Württemberg to Thüringen:** The number of Vehicles registered in the state
+- **State Total** The total number of vehicles registerd in the states
+- **Other** Vehicles that aren't registerd in any state. e.g. vehicles owned by the "Bundespolizei".
+- **Germany Total** All vehicles registerd in Germany
