@@ -16,8 +16,7 @@ def start_text_ui():
         filters_container.set_question_answer(current_question.question_key, answer)
 
     csv_name, column_name = filters_container.get_resulting_dataset()
-    return data_container.data[csv_name]["Year"], ProbPair(data_container.data[csv_name][column_name],
-                                                           data_container.data["Reference Numbers.csv"]["total registered vehicles"])
+    return data_container.all_references["Year"], data_container.data[csv_name][column_name]
 
 
 def quick_plot(years, data):

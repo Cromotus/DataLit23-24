@@ -44,6 +44,6 @@ while True:
 
 
 csv_name, column_name = filters_container.get_resulting_dataset()
-years, probability = data_container.data[csv_name]["Year"], ProbPair(data_container.data[csv_name][column_name], data_container.data["Reference Numbers.csv"]["total registered vehicles"])
+years, probability = data_container.all_references["Year"], data_container.data[csv_name][column_name]
 first_acc = calculate_first_accident_prob(probability)
 st.pyplot(quick_plot(years, first_acc))
