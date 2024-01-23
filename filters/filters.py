@@ -80,7 +80,7 @@ class Question:
         self.question_text=question_text
         self.question_options=question_options
     def __str__(self):
-        return "\"question\":{\"key\"="+self.question_key+", \"text\"= "+self.question_text+", \"options\"="+str(self.question_options)+"}"
+        return "\"question\":{\"key\"="+self.question_key+", \"text\"= "+self.question_text+", \"options\"="+str([str(option) for option in self.question_options])+"}"
    
 class AnswerOption:
     def __init__(self,option_key,option_text):
