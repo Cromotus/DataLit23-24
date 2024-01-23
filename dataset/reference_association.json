@@ -1,0 +1,91 @@
+{
+  "Accident Causes.csv": {
+    "Rain": "total registered vehicles",
+    "Snow/Ice": "total registered vehicles",
+    "technical defects": "total registered vehicles",
+    "misconduct involved total": "total registered vehicles",
+    "misconduct Trucks": "registered trucks",
+    "misconduct cars": "registered cars",
+    "misconduct motorbikes": "registered motorcycles",
+    "misconduct bikes": "total population",
+    "misconduct pedestrians": "total population",
+    "driver misconduct total": "total registered vehicles",
+    "alcohol": "total registered vehicles",
+    "speed": "total registered vehicles",
+    "distance": "total registered vehicles",
+    "right of way": "total registered vehicles",
+    "turning": "total registered vehicles",
+    "car driver misconduct": "registered cars",
+    "car alcohol": "registered cars",
+    "car speed": "registered cars",
+    "car distance": "registered cars",
+    "car right of way": "registered cars",
+    "car turning": "registered cars"
+  },
+  "Accident Numbers.csv": {
+    "COMPLETE_FILE": "total registered vehicles"
+  },
+  "Accidents by State.csv": {
+    "COMPLETE_FILE": "total registered vehicles"
+  },
+  "Deaths.csv": {
+    "car": "registered cars",
+    "car 18 to 25": "registered cars",
+    "motorbikes insurance plates": "registered motorcycles",
+    "motorbikes official plates": "registered motorcycles",
+    "trucks": "registered trucks",
+    "bikes": "total population",
+    "pedestrians": "total population",
+    "pedestrians 65 or older": "population over 65",
+    "male total": "total population",
+    "male car driver": "registered cars",
+    "male car passenger": "registered cars",
+    "male pedestrian": "total population",
+    "female total": "total population",
+    "female car driver": "registered cars",
+    "female car passenger": "registered cars",
+    "female pedestrian": "total population",
+    "under 15": "population under 15",
+    "15 - 18": "population 15-18",
+    "18 - 25": "population 18-25",
+    "25 - 65": "population 25-65",
+    "65 and over": "population over 65",
+    "inside cities": "total registered vehicles",
+    "outside cities excl Autobahn": "total registered vehicles",
+    "Autobahn": "total registered vehicles"
+  },
+  "Injured Persons.csv": {
+    "COMPLETE_FILE": "total population"
+  },
+  "Injured Persons 2.csv": {
+    "COMPLETE_FILE": "total population"
+  },
+  "Involved Persons.csv": {
+    "total": "total registered vehicles",
+    "trucks": "registered trucks",
+    "cars": "registered cars",
+    "motorbikes insurance plates": "registered motorcycles",
+    "motorbikes official plates": "registered motorcycles",
+    "bikes": "total population",
+    "pedestrians": "total population",
+    "car male": "registered cars",
+    "car female": "registered cars",
+    "car 18 - 25": "population 18-25",
+    "car 25 - 65": "population 25-65",
+    "car over 65": "population over 65"
+  },
+  "Main Causer.csv": {
+    "total": "total registered vehicles",
+    "trucks": "registered trucks",
+    "cars": "registered cars",
+    "motorbikes insurance plates": "registered motorcycles",
+    "motorbikes official plates": "registered motorcycles",
+    "bikes": "total population",
+    "pedestrians": "total population",
+    "car male": "registered cars",
+    "car female": "registered cars",
+    "car 18 - 25": "population 18-25",
+    "car 25 - 65": "population 25-65",
+    "car over 65": "population over 65"
+  }
+}
