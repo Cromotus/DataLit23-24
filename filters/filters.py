@@ -30,7 +30,6 @@ class Filters:
     # setQuestionAnswer(message_key, option_key): void
     def set_question_answer(self, message_key, option_key):
         self.selected_options.append((message_key,option_key))
-        print(self.filter_data)
         current_question = self.filter_data[message_key]
         del self.filter_data[message_key]
         if option_key == "skip":
@@ -39,17 +38,18 @@ class Filters:
         answer_options = current_question["answer_options"]
         answer_option = answer_options[option_key]
         allowed_questions = answer_option["allowed_questions"]
-        for question in dict(self.filter_data):#iterate on copy to allow modifications
-            if question in allowed_questions[:]:
-                question_allowed_options = answer_option["allowed_options"]
-                if bool(question_allowed_options) or question not in question_allowed_options:
+        question_allowed_options = answer_option["allowed_options"]
+        for question_key in dict(self.filter_data):#iterate on copy to allow modifications
+            if question_key in allowed_questions[:]:
+                if not bool(question_allowed_options) or question_key not in question_allowed_options:
                     continue
-                allowed_options = question_allowed_options[question]
-                for option_key, option_details in question["answer_options"].items():
+                allowed_options = question_allowed_options[question_key]
+                question = self.filter_data[question_key]
+                for option_key, option_details in dict(question["answer_options"]).items():
                     if option_key not in allowed_options:
-                        del question[answer_options][option_key]
+                        del question["answer_options"][option_key]
             else:
-                del self.filter_data[question]
+                del self.filter_data[question_key]
 
     #return nothing if theres no resulting dataset or (resulting dataset name,colum name)
     def get_resulting_dataset(self):
@@ -87,4 +87,4 @@ class AnswerOption:
         self.option_key=option_key
         self.option_text=option_text
     def __str__(self):
-        return "AnswerOption(\nkey = "+self.option_key+", \ntext= "+self.option_text+")"
+        return "AnswerOption(\nkey = "+self.option_key+", \ntext= "+self.option_text+")"   

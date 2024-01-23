@@ -29,7 +29,7 @@
                 "15-18":{"option_text":"15-18","allowed_questions":["death"],"allowed_options":{"death":["15-18"]},"resulting_dataset":"None"},
                 "18-25":{"option_text":"18-25","allowed_questions":["death", "vehicle_type"],"allowed_options":{"death":["car 18 to 25","18 - 25"],"vehicle_type":["car"]},"resulting_dataset":"None"},
                 "25-65":{"option_text":"25-65","allowed_questions":["death"],"allowed_options":{"death":["25 - 65"]},"resulting_dataset":"None"},
-                "o65":{"option_text":"older then 65","allowed_questions":["death"],"allowed_options":{"death":["pedestrians 65 or older","65 or older"]},"resulting_dataset":"None"}
+                "o65":{"option_text":"older then 65","allowed_questions":["death"],"allowed_options":{"death":["pedestrians 65 or older","65 and over"]},"resulting_dataset":"None"}
             }
         },
         "death":{
