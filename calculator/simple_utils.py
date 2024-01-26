@@ -7,6 +7,9 @@ from tueplots.constants.color import rgb
 
 
 def start_text_ui():
+    """
+    simple text based UI to test the system independent of the visual UI
+    """
     filters_container = Filters(config_path="../dataset/filter-configuration.json")
     data_container = DataContainer()
 
@@ -16,6 +19,7 @@ def start_text_ui():
         filters_container.set_question_answer(current_question.question_key, answer)
 
     csv_name, column_name = filters_container.get_resulting_dataset()
+    # returning the years and the ProbPair from the data_container
     return data_container.all_references["Year"], data_container.data[csv_name][column_name]
 
 
@@ -29,6 +33,8 @@ def quick_plot(years, data):
     ax.set_ylabel("probability of first accident")
     ax.set_xlabel("Year")
     plt.show()
+
+    #plt.savefig("test.pdf")
 
 
 if __name__ == '__main__':

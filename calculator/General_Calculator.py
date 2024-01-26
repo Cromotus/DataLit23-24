@@ -38,6 +38,7 @@ class PlusCombination(UiInterface):
         self.freq_list = freq_list
 
     def return_value(self):
+        # recursive call of the elements in the Combination so that the actual values are calculated.
         resolved_list = [pair.return_value() for pair in self.freq_list]
         new_abs_freq = 0
         new_reference = 0
@@ -59,9 +60,11 @@ class AndCombination(UiInterface):
         self.freq_list = freq_list
 
     def return_value(self):
+        # recursive call of the elements in the Combination so that the actual values are calculated.
         resolved_list = [pair.return_value() for pair in self.freq_list]
         new_abs_freq = 1
         new_reference = 1
+        # the new combined absolute frequency from all ProbPairs
         for pair in resolved_list:
             new_abs_freq *= pair.abs_frequency
             new_reference *= pair.reference
@@ -73,6 +76,7 @@ def calculate_first_accident_prob(prob_combination: UiInterface, start_year=1991
     prob_pair: ProbPair = prob_combination.return_value()
     yearly_prob = prob_pair.return_relative_prob()
 
+    # calculating the probability for the first accident in year year_index
     prob_accident = np.array(
         [np.prod(1 - yearly_prob[(start_year-1991):year_index]) * yearly_prob[year_index] for year_index in range(end_year - start_year + 1)]
     )
