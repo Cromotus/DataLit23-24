@@ -12,6 +12,8 @@ class Filters:
     def reset(self):
         self.filter_data=dict(self.initial_filter_data["filters"])
         self.selected_options=[]
+        #Set to all accidents as default
+        self.resulting_dataset=("Accident Numbers.csv","Total")
 
     def has_next_question(self): 
         return bool(self.filter_data)
@@ -31,28 +33,51 @@ class Filters:
     def set_question_answer(self, message_key, option_key):
         self.selected_options.append((message_key,option_key))
         current_question = self.filter_data[message_key]
+
+        if option_key != "skip":
+            self.store_resulting_dataset_based_on_answer(current_question, option_key)
+
         del self.filter_data[message_key]
         if option_key == "skip":
-            return
+            return        
+
         # remove options based on answer
         answer_options = current_question["answer_options"]
         answer_option = answer_options[option_key]
         allowed_questions = answer_option["allowed_questions"]
-        question_allowed_options = answer_option["allowed_options"]
+        if "allowed_options" in answer_option:
+            question_allowed_options = answer_option["allowed_options"]
+        else:
+            question_allowed_options = False
         for question_key in dict(self.filter_data):#iterate on copy to allow modifications
             if question_key in allowed_questions[:]:
-                if not bool(question_allowed_options) or question_key not in question_allowed_options:
-                    continue
-                allowed_options = question_allowed_options[question_key]
-                question = self.filter_data[question_key]
-                for option_key, option_details in dict(question["answer_options"]).items():
-                    if option_key not in allowed_options:
-                        del question["answer_options"][option_key]
+                self.filter_available_question_options_based_on_answer(question_allowed_options, question_key)
             else:
                 del self.filter_data[question_key]
 
+    def store_resulting_dataset_based_on_answer(self, question, option_key):
+        if question["answer_options"] and question["answer_options"][option_key]:
+            answer_option = question["answer_options"][option_key]
+            if answer_option["resulting_dataset"]:
+                if "dataset_key" in answer_option:
+                    dataset_key = answer_option["dataset_key"]
+                else:
+                    dataset_key = option_key
+                self.resulting_dataset = (answer_option["resulting_dataset"],dataset_key)
+
+    def filter_available_question_options_based_on_answer(self, question_allowed_options, question_key):
+        if not bool(question_allowed_options) or question_key not in question_allowed_options:
+            return
+        allowed_options = question_allowed_options[question_key]
+        question = self.filter_data[question_key]
+        for option_key, option_details in dict(question["answer_options"]).items():
+            if option_key not in allowed_options:
+                del question["answer_options"][option_key]
+
     #return nothing if theres no resulting dataset or (resulting dataset name,colum name)
     def get_resulting_dataset(self):
+        if self.resulting_dataset:
+            return self.resulting_dataset
         for message_key, option_key in self.selected_options:
             resulting_dataset = self.get_resulting_dataset_for_options(message_key,option_key)
             if resulting_dataset:
