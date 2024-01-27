@@ -74,7 +74,7 @@
                 "Sachsen":{"option_text":"Sachsen", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
                 "Sachsen- Anhalt":{"option_text":"Sachsen-Anhalt", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
                 "Schleswig- Holstein":{"option_text":"Schleswig-Holstein", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
-                "Thüringen":{"option_text":"Thüringen", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"}
+                "Thueringen":{"option_text":"Thüringen", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"}
             }
         },
         "death":{
