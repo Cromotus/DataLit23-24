@@ -16,7 +16,7 @@ class DataContainer:
                                                          sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
         # iterating through all csv files
         for file_name in os.listdir(dataset_folder_path):
-            if file_name == "Reference Numbers.csv" or file_name == "Registered Vehicles by State.csv":
+            if file_name == "Reference Numbers.csv":
                 # the reference and Registerd vehicles per state are not loaded as data
                 continue
             if os.path.isfile(os.path.join(dataset_folder_path, file_name)) and file_name.endswith("csv"):

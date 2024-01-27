@@ -26,7 +26,22 @@
     "COMPLETE_FILE": "total registered vehicles"
   },
   "Accidents by State.csv": {
-    "COMPLETE_FILE": "total registered vehicles"
+    "Baden- Wuerttemberg": "Baden- Wuerttemberg",
+    "Bayern": "Bayern",
+    "Berlin": "Berlin",
+    "Brandenburg": "Brandenburg",
+    "Bremen": "Bremen",
+    "Hamburg": "Hamburg",
+    "Hessen": "Hessen",
+    "Mecklenburg-Vorpommern": "Mecklenburg-Vorpommern",
+    "Nieder- sachsen": "Nieder- sachsen",
+    "Nordrhein- Westfalen": "Nordrhein- Westfalen",
+    "Rheinland- Pfalz": "Rheinland- Pfalz",
+    "Saarland": "Saarland",
+    "Sachsen": "Sachsen",
+    "Sachsen- Anhalt": "Sachsen- Anhalt",
+    "Schleswig- Holstein": "Schleswig- Holstein",
+    "Thueringen": "Thueringen"
   },
   "Deaths.csv": {
     "car": "registered cars",
