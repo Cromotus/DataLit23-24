@@ -4,12 +4,12 @@
             "display_text":"Result of the accident",
             "skippable":"true",
             "answer_options":{
-                "only property damage":{"option_text":"only property damage","allowed_questions":[],"resulting_dataset":"Accident Numbers.csv"},
-                "with damage to people":{"option_text":"damage to people","allowed_questions":["accident_location"],"resulting_dataset":"Accident Numbers.csv"},
-                "lightly injured":{"option_text":"damage to people","allowed_questions":[],"resulting_dataset":"Injured Persons.csv"},
-                "severely injured":{"option_text":"damage to people","allowed_questions":[],"resulting_dataset":"Injured Persons.csv"},
-                "dead":{"option_text":"death","allowed_questions":["vehicle_type", "death", "age_group"],"resulting_dataset":"Injured Persons.csv"},
-                "general_involvement":{"option_text": "You beeing generally involved", "allowed_questions":["involved persons"],"resulting_dataset":"Involved Persons.csv", "dataset_key":"total"},
+                "only property damage":{"option_text":"Only property damage","allowed_questions":[],"resulting_dataset":"Accident Numbers.csv"},
+                "with damage to people":{"option_text":"General damage to people","allowed_questions":["accident_location"],"resulting_dataset":"Accident Numbers.csv"},
+                "lightly injured":{"option_text":"Light damage to people","allowed_questions":[],"resulting_dataset":"Injured Persons.csv"},
+                "severely injured":{"option_text":"Severe damage to people","allowed_questions":[],"resulting_dataset":"Injured Persons.csv"},
+                "dead":{"option_text":"Death","allowed_questions":["vehicle_type", "death", "age_group"],"resulting_dataset":"Injured Persons.csv"},
+                "general_involvement":{"option_text": "You being generally involved", "allowed_questions":["involved persons"],"resulting_dataset":"Involved Persons.csv", "dataset_key":"total"},
                 "main_causer":{"option_text": "You being the causer", "allowed_questions":["main_causer"],"resulting_dataset":"Main Causers.csv", "dataset_key":"total"}
             }
         },
@@ -18,7 +18,7 @@
             "skippable":"false",
             "answer_options":{
                 "car":{"option_text":"Car","allowed_questions":["death", "age_group", "involved_persons"],"allowed_options":{"involved_persons":["cars","car male", "car female", "car 18-25", "car 25-65", "car over 65"],"age_group":["18-25"],"death":["car","car 18 to 25","male car driver","male car passenger","female car driver","female car passenger"]},"resulting_dataset":"None"},
-                "motorcycle":{"option_text":"Bike","allowed_questions":["death", "involved persons"],"allowed_options":{"involved_persons":["motorbikes insurance plates", "motorbikes official plates"],"death":["motorbikes insurance plates","motorbikes official plates"]},"resulting_dataset":"None"},
+                "motorcycle":{"option_text":"Motorcycle","allowed_questions":["death", "involved persons"],"allowed_options":{"involved_persons":["motorbikes insurance plates", "motorbikes official plates"],"death":["motorbikes insurance plates","motorbikes official plates"]},"resulting_dataset":"None"},
                 "bike":{"option_text":"Bike","allowed_questions":["death", "involved persons"],"allowed_options":{"involved_persons":["bikes"], "death":["bike"]},"resulting_dataset":"None"},
                 "pedestrian":{"option_text":"By foot","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["pedestrians"],"death":["pedestrians","pedestrians 65 or older","male pedestrian","female pedestrian"]},"resulting_dataset":"None"},
                 "truck":{"option_text":"Truck","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["trucks"],"death":["trucks"]},"resulting_dataset":"None"}
@@ -28,15 +28,15 @@
             "display_text":"Your age group",
             "skippable":"true",
             "answer_options":{
-                "u15":{"option_text":"under 15","allowed_questions":["death"],"allowed_options":{"death":["under 15"]},"resulting_dataset":"None"},
+                "u15":{"option_text":"Under 15","allowed_questions":["death"],"allowed_options":{"death":["under 15"]},"resulting_dataset":"None"},
                 "15-18":{"option_text":"15-18","allowed_questions":["death"],"allowed_options":{"death":["15-18"]},"resulting_dataset":"None"},
                 "18-25":{"option_text":"18-25","allowed_questions":["death", "vehicle_type", "involved_persons"],"allowed_options":{"involved_persons":["car 18 - 25"],"death":["car 18 to 25","18 - 25"],"vehicle_type":["car"]},"resulting_dataset":"None"},
                 "25-65":{"option_text":"25-65","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["car 25 - 65"],"death":["25 - 65"]},"resulting_dataset":"None"},
-                "o65":{"option_text":"older then 65","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["car over 65"],"death":["pedestrians 65 or older","65 and over"]},"resulting_dataset":"None"}
+                "o65":{"option_text":"Older then 65","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["car over 65"],"death":["pedestrians 65 or older","65 and over"]},"resulting_dataset":"None"}
             }
         },
         "involved_persons":{ 
-            "display_text":"Involment in Accidents",
+            "display_text":"Involvement in Accidents",
             "skippable":"true",
             "answer_options":{
                 "trucks":{"option_text":"Truck accidents","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
@@ -44,12 +44,12 @@
                 "motorbikes insurance plates":{"option_text":"Accidents with motorbikes using insurance plates","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
                 "motorbikes official plates":{"option_text":"Accidents with motorbikes using official plates","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
                 "bikes":{"option_text":"Bike accidents","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
-                "pedestrians":{"option_text":"Involement as a pedestrian","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
-                "car male":{"option_text":"Involement as a male car drivers involved in accidents","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
-                "car female":{"option_text":"Involement as a female car drivers involved in accidents","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
-                "car 18 - 25":{"option_text":"Involement as a driver between 18 and 25","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
-                "car 25 - 65":{"option_text":"Involement as a driver between 25 and 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
-                "car over 65":{"option_text":"Involement as a driver over 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"}
+                "pedestrians":{"option_text":"Involvement as a pedestrian","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
+                "car male":{"option_text":"Involvement as a male car drivers involved in accidents","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
+                "car female":{"option_text":"Involvement as a female car drivers involved in accidents","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
+                "car 18 - 25":{"option_text":"Involvement as a driver between 18 and 25","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
+                "car 25 - 65":{"option_text":"Involvement as a driver between 25 and 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"},
+                "car over 65":{"option_text":"Involvement as a driver over 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Involved Persons.csv"}
             }
         },
         "accident_location":{
@@ -59,7 +59,7 @@
                 "on Autobahn":{"option_text":"On the Autobahn", "allowed_questions":["death"], "allowed_options":{"death":["Autobahn"]}, "resulting_dataset":"Accident Numbers.csv"},
                 "inside cities": {"option_text":"Accidents with harm to people that happened inside cities", "allowed_questions":["death"], "allowed_options":{"death":["inside cities"]}, "resulting_dataset":"Accident Numbers.csv"},
                 "outside cities without Autobahn":{"option_text":"Accidents with harm to people that happened outside cites but not on the Autobahn"},
-                "Baden- Wuerttemberg":{"option_text":"Baden- Württemberg", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
+                "Baden- Wuerttemberg":{"option_text":"Baden-Württemberg", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
                 "Bayern":{"option_text":"Bayern", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
                 "Berlin":{"option_text":"Berlin", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
                 "Brandenburg":{"option_text":"Brandenburg", "allowed_questions":[], "allowed_options":{}, "resulting_dataset":"Accidents by State.csv"},
@@ -114,35 +114,35 @@
             "answer_options":{
 				"trucks":{"option_text":"Truck","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
                 "cars":{"option_text":"Car","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "motorbikes insurance plates":{"option_text":"motorbikes","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "motorbikes official plates":{"option_text":"motorbikes using official plates","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "motorbikes insurance plates":{"option_text":"Motorbikes not using official plates","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "motorbikes official plates":{"option_text":"Motorbikes using official plates","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
                 "bikes":{"option_text":"Bikes","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "pedestrians":{"option_text":"pedestrians","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "car male":{"option_text":"male car drivers","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "car female":{"option_text":"female car drivers","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "car 18 - 25":{"option_text":"driver between 18 and 25","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "car 25 - 65":{"option_text":"driver between 25 and 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
-                "car over 65":{"option_text":"driver over 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"}
+                "pedestrians":{"option_text":"Pedestrians","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "car male":{"option_text":"Male car drivers","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "car female":{"option_text":"Female car drivers","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "car 18 - 25":{"option_text":"Driver between 18 and 25","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "car 25 - 65":{"option_text":"Driver between 25 and 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"},
+                "car over 65":{"option_text":"Driver over 65","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Causer.csv"}
             }
         },
         "accident cause":{
             "display_text":"Cause of the accident",
             "skippable":"true",
             "answer_options":{
-                "Rain":{"option_text":"accidents were caused by rain","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "Snow/Ice":{"option_text":"accidents were caused by Snow or Ice","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "technical defects":{"option_text":"accidents were caused by technical defects","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "misconduct involved total":{"option_text":"accidents that happened because of a misconduct of one or more of the participants","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "Rain":{"option_text":"Accidents were caused by rain","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "Snow/Ice":{"option_text":"Accidents were caused by Snow or Ice","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "technical defects":{"option_text":"Accidents were caused by technical defects","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "misconduct involved total":{"option_text":"Accidents that happened because of a misconduct of one or more of the participants","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "misconduct Trucks":{"option_text":"Accidents that happened because of a misconduct by a truck driver","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "misconduct cars":{"option_text":"Accidents that happened because of a misconduct by a car driver","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "misconduct motorbikes":{"option_text":"Accidents that happened because of a misconduct by a motorbike driver","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "misconduct bikes":{"option_text":"Accidents that happened because of a misconduct by a cyclist","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "misconduct pedestrians":{"option_text":"Accidents that happened because of a misconduct by a pedestrian","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "driver misconduct total":{"option_text":"accidents that happened because of a misconduct by the driver of a Vehicle","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "alcohol":{"option_text":"alcohol related misconducts","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "speed":{"option_text":"accidents that happened because the driving speed wasn't adjusted to the road conditions/limits","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "distance":{"option_text":"accidents that happened because the distance to the car infront was insuficient","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
-                "right of way":{"option_text":"accidents that happened because the right of way rules where not followed","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "alcohol":{"option_text":"Alcohol related misconducts","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "speed":{"option_text":"Accidents that happened because the driving speed wasn't adjusted to the road conditions/limits","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "distance":{"option_text":"Accidents that happened because the distance to the car in front was insufficient","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
+                "right of way":{"option_text":"Accidents that happened because the right of way rules where not followed","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "turning":{"option_text":"Accidents that were related to turning, reversing, etc.","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "car driver misconduct":{"option_text":"Same as 'driver misconduct total' but only for cars instead of all vehicles.","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
                 "car alcohol":{"option_text":"Same as 'alcohol' but only for cars instead of all vehicles.","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Main Cause.csv"},
