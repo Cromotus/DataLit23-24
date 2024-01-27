@@ -14,8 +14,10 @@ data_container = DataContainer()
 
 
 def func(current_question, counter):
-    s = st.selectbox(current_question.question_text, [x.option_key for x in current_question.question_options], None, key=counter)
-    return s
+    selection = st.selectbox(current_question.question_text,
+                               [x for x in current_question.question_options], None, key=counter,
+                               format_func=lambda x: x.option_text)
+    return selection
 
 
 def quick_plot(years, data):
@@ -34,7 +36,7 @@ current_question = filters_container.get_next_question()
 s = func(current_question, counter)
 while True:
     if s:
-        filters_container.set_question_answer(current_question.question_key, s)
+        filters_container.set_question_answer(current_question.question_key, s.option_key)
         if filters_container.has_next_question():
             counter += 1
             current_question = filters_container.get_next_question()
