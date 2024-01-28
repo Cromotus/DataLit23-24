@@ -7,6 +7,7 @@ class UiInterface:
     With an Object of the UiInterface, you can define what should be done with the probabilities you hand over.
     The interface is recursively defined to support infinite complex combinations.
     """
+
     def return_value(self):
         pass
 
@@ -16,6 +17,7 @@ class ProbPair(UiInterface):
     The Prob(ability)Pair is the atomic unit. It is the pair of the absolute frequency of an event and the reference
     associated with it.
     """
+
     def __init__(self, abs_frequency, reference):
         self.abs_frequency = abs_frequency
         self.reference = reference
@@ -34,6 +36,7 @@ class PlusCombination(UiInterface):
     For example: You want the probability of an accident from 18-25 and 25-65. These two Feature are from the category
     age. Hence, they are combined with PlusCombination.
     """
+
     def __init__(self, freq_list: [UiInterface]):
         self.freq_list = freq_list
 
@@ -56,6 +59,7 @@ class AndCombination(UiInterface):
     For example: You want the probability of an accident between 18-25 and when you are male. These two features qre not
     from the same category and hence, combined with AndCombination.
     """
+
     def __init__(self, freq_list: [UiInterface]):
         self.freq_list = freq_list
 
@@ -77,8 +81,7 @@ def calculate_first_accident_prob(prob_combination: UiInterface, start_year=1991
     yearly_prob = prob_pair.return_relative_prob()
 
     # calculating the probability for the first accident in year year_index
-    prob_accident = np.array(
-        [np.prod(1 - yearly_prob[(start_year-1991+1):year_index]) * yearly_prob[year_index] for year_index in range(end_year - start_year + 1)]
-    )
+    start_index = start_year - 1991
+    prob_accident = np.array([np.prod(1 - yearly_prob[start_index : start_index + year_index]) * yearly_prob[start_index + year_index] for year_index in range(end_year - start_year + 1)])
 
     return prob_accident
