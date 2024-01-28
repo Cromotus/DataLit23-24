@@ -20,21 +20,40 @@ def start_text_ui():
 
     csv_name, column_name = filters_container.get_resulting_dataset()
     # returning the years and the ProbPair from the data_container
-    return data_container.all_references["Year"], data_container.data[csv_name][column_name]
+    return data_container.all_references["Year"], data_container.data[csv_name][column_name], column_name
 
 
-def quick_plot(years, data):
-    plt.rcParams.update(bundles.icml2022(column="full", usetex=False))
+def quick_plot(years, data, title="First Accident Probability", file_name=None):
+    plt.rcParams.update(bundles.icml2022(column="half", usetex=False))
 
     fig, ax = plt.subplots()
-    fig.suptitle("Probability of first accident")
+    fig.suptitle(title)
     ax.plot(years, data, color=rgb.tue_red)
     ax.grid()
     ax.set_ylabel("probability of first accident")
     ax.set_xlabel("Year")
-    plt.show()
+    if file_name:
+        plt.savefig(file_name)
+    else:
+        plt.show()
 
-    #plt.savefig("test.pdf")
+
+def quick_multi_plot(years, data_name_pair, title="First Accident Probability", file_name=None):
+    plt.rcParams.update(bundles.icml2022(column="half", usetex=False))
+
+    fig, ax = plt.subplots()
+    fig.suptitle(title)
+    for data, name in data_name_pair:
+        ax.plot(years, data, label=name)
+
+    ax.grid()
+    ax.set_ylabel("probability of first accident")
+    ax.set_xlabel("Year")
+    ax.legend()
+    if file_name:
+        plt.savefig(file_name)
+    else:
+        plt.show()
 
 
 if __name__ == '__main__':
