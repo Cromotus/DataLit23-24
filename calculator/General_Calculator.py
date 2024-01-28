@@ -77,7 +77,6 @@ def calculate_first_accident_prob(prob_combination: UiInterface, start_year=1991
     yearly_prob = prob_pair.return_relative_prob()
 
     # calculating the probability for the first accident in year year_index
-    array_of_probs = yearly_prob[(start_year-1991):20]
     prob_accident = np.array(
         [np.prod(1 - yearly_prob[(start_year-1991+1):year_index]) * yearly_prob[year_index] for year_index in range(end_year - start_year + 1)]
     )
