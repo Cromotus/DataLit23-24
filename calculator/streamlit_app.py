@@ -1,9 +1,7 @@
 from DataLoader import DataContainer
 from filters import Filters
 from General_Calculator import ProbPair, calculate_first_accident_prob
-import matplotlib.pyplot as plt
-from tueplots import bundles
-from tueplots.constants.color import rgb
+from simple_utils import quick_plot
 import streamlit as st
 
 # st.set_page_config(layout="wide")
@@ -18,17 +16,6 @@ def func(current_question, counter):
                                [x for x in current_question.question_options], None, key=counter,
                                format_func=lambda x: x.option_text)
     return selection
-
-
-def quick_plot(years, data):
-    plt.rcParams.update(bundles.icml2022(column="full", usetex=False))
-    fig, ax = plt.subplots(figsize=(7, 7))
-    fig.suptitle("Probability of first accident")
-    ax.plot(years, data, color=rgb.tue_red)
-    ax.grid()
-    ax.set_ylabel("probability of first accident")
-    ax.set_xlabel("Year")
-    return fig
 
 
 counter = 1
@@ -46,6 +33,6 @@ while True:
 
 
 csv_name, column_name = filters_container.get_resulting_dataset()
-years, probability = data_container.all_references["Year"], data_container.data[csv_name][column_name]
-first_acc = calculate_first_accident_prob(probability)
-st.pyplot(quick_plot(years, first_acc))
+years, yearly_probability = data_container.all_references["Year"], data_container.data[csv_name][column_name]
+first_acc = calculate_first_accident_prob(yearly_probability)
+st.pyplot(quick_plot(years, first_acc, yearly_probability.return_relative_prob()))

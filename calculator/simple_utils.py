@@ -23,16 +23,21 @@ def start_text_ui():
     return data_container.all_references["Year"], data_container.data[csv_name][column_name]
 
 
-def quick_plot(years, data):
+def quick_plot(years, first_acc_data, yearly_prob):
     plt.rcParams.update(bundles.icml2022(column="full", usetex=False))
 
     fig, ax = plt.subplots()
     fig.suptitle("Probability of first accident")
-    ax.plot(years, data, color=rgb.tue_red)
+    ax.plot(years, first_acc_data, color=rgb.tue_red)
+    ax2 = ax.twinx()
+    ax2.bar(years, yearly_prob, color=(*rgb.tue_blue, 0.3))
+    ax2.set_ylabel("probability of accident in that year")
     ax.grid()
     ax.set_ylabel("probability of first accident")
     ax.set_xlabel("Year")
-    plt.show()
+
+    return fig
+    # plt.show()
 
     #plt.savefig("test.pdf")
 
