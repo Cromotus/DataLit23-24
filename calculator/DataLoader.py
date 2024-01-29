@@ -2,7 +2,7 @@ import numpy as np
 import pandas
 import os
 import json
-from General_Calculator import ProbPair
+from calculator.General_Calculator import ProbPair
 
 
 class DataContainer:
