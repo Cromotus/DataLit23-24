@@ -24,10 +24,8 @@ def start_text_ui():
 
 
 def quick_plot(years, first_acc_data, yearly_prob):
-    plt.rcParams.update(bundles.icml2022(column="full", usetex=False))
 
     fig, ax = plt.subplots()
-    # fig.suptitle("Probability of first accident")
     ax.plot(years, first_acc_data, color=rgb.tue_red, label=f"Probability of first accident starting {years.values[0]}")
     ax.bar(years, yearly_prob, color=(*rgb.tue_blue, 0.3), label="Yearly Probability of accident")
     ax.grid()
