@@ -6,20 +6,19 @@ from tueplots.constants.color import rgb
 import matplotlib.pyplot as plt
 import pandas as pd
 import geopandas as gpd
-from calculator.DataLoader import DataContainer
+
 
 class DataContainer:
     # Taken from calculator/DataLoader.py
     def __init__(self, dataset_folder_path="../dataset/csv", start_year=1991, end_year=2021):
-        reference = pd.read_csv(os.path.join(dataset_folder_path, "Reference Numbers.csv"), sep=';', dtype=np.float64,
-                    na_values="-")
+        reference = pd.read_csv(os.path.join(dataset_folder_path, "Reference Numbers.csv"), sep=";", dtype=np.float64, na_values="-")
         interplolated = self.interpolate_gap(reference, start_year, end_year)
-        self.data = {"Reference Numbers.csv": self.interpolate_gap(pd.read_csv(os.path.join(dataset_folder_path, "Reference Numbers.csv"), sep=';', dtype=np.float64, na_values="-"), start_year, end_year)}
+        self.data = {"Reference Numbers.csv": self.interpolate_gap(pd.read_csv(os.path.join(dataset_folder_path, "Reference Numbers.csv"), sep=";", dtype=np.float64, na_values="-"), start_year, end_year)}
         for file_name in os.listdir(dataset_folder_path):
             if file_name == "Reference Numbers.csv":
                 continue
             if file_name.endswith("csv"):
-                interpolated_data = self.interpolate_gap(pd.read_csv(os.path.join(dataset_folder_path, file_name), sep=';', dtype=np.float64, na_values="-"), start_year, end_year)
+                interpolated_data = self.interpolate_gap(pd.read_csv(os.path.join(dataset_folder_path, file_name), sep=";", dtype=np.float64, na_values="-"), start_year, end_year)
                 self.data[file_name] = interpolated_data
 
     def interpolate_gap(self, df: pd.DataFrame, start_year: int, end_year: int):
@@ -47,8 +46,8 @@ class DataContainer:
 
                     break
 
-if __name__ == '__main__':
 
+if __name__ == "__main__":
     data = DataContainer()
 
     accidents = data.data["Accident Numbers.csv"]
@@ -58,7 +57,6 @@ if __name__ == '__main__':
     deaths = data.data["Deaths.csv"]
     causer = data.data["Main Causer.csv"]
     causes = data.data["Accident Causes.csv"]
-
 
     # Figure 1: Germany Accidents
     accidents_state = pd.read_csv("../dataset/shape_files/Accidents by State.csv", sep=";")
@@ -72,14 +70,13 @@ if __name__ == '__main__':
     gdf_de = gdf[gdf.CNTR_CODE == "DE"]  # Take Germany
     gdf_de = gdf_de.loc[gdf_de.LEVL_CODE <= 1]  # Only states and national border
 
-    states = gdf_de['NAME_LATN'][1:].values.tolist()
+    states = gdf_de["NAME_LATN"][1:].values.tolist()
     # berlin_ratio = (accidents_state[states]/registered_vehicles_state[states]).iloc[25]["Berlin"] # 0.102
     state_short = ["NW", "HE", "BW", "ST", "TH", "SN", "RP", "BB", "NI", "BY", "MV", "SH", "SL", "BE", "HB", "HH"]
     idx = states.index("Berlin")
     states.remove("Berlin")
 
-    im = plt.imshow((accidents_state[states].iloc[25] / registered_vehicles_state[states].iloc[2]).values[None, :],
-                    cmap="YlGnBu")
+    im = plt.imshow((accidents_state[states].iloc[25] / registered_vehicles_state[states].iloc[2]).values[None, :], cmap="YlGnBu")
     plt.close()
     colors = im.cmap(im.norm(im.get_array())).tolist()[0]
     colors.insert(idx, np.min(colors, 0))
@@ -105,15 +102,13 @@ if __name__ == '__main__':
     plt.rcParams.update(bundles.icml2022(column="half", nrows=1, ncols=1, usetex=False))
 
     ax = plt.axes()
-    l1 = ax.plot(accidents["Year"], accidents["Total"] / reference["total registered vehicles"], "-",
-                 color=rgb.tue_blue, label="Total Accidents / registered vehicle")
+    l1 = ax.plot(accidents["Year"], accidents["Total"] / reference["total registered vehicles"], "-", color=rgb.tue_blue, label="Total Accidents / registered vehicle")
     ax.scatter(accidents["Year"], accidents["Total"] / reference["total registered vehicles"], s=7, color=rgb.tue_blue)
     ax.set_ylim(0.02, 0.08)
     ax.set_ylabel("Total accidents per vehicle")
     ax.set_ylim(0.02, 0.08)
     ax2 = ax.twinx()
-    l2 = ax2.plot(accidents["Year"], accidents["Total"] / reference["total street km"], "-", color=rgb.tue_green,
-                  label="Total Accidents / street km")
+    l2 = ax2.plot(accidents["Year"], accidents["Total"] / reference["total street km"], "-", color=rgb.tue_green, label="Total Accidents / street km")
     ax2.scatter(accidents["Year"], accidents["Total"] / reference["total street km"], s=7, color=rgb.tue_green)
     ax2.set_ylabel("Total accidents per street km")
     ax2.set_ylim(9, 12)
@@ -125,26 +120,22 @@ if __name__ == '__main__':
     plt.savefig("./export/Total-Accidents.pdf")
     plt.show()
 
-    # Figure 3 - Accidnets Damage People
+    # Figure 3 - Accidents Damage People
     plt.rcParams.update(bundles.icml2022(column="half", nrows=1, ncols=1, usetex=False))
 
     ax = plt.axes()
     # ax.set_title("Accidents with damage to people per registered vehicle")
-    ax.plot(accidents["Year"], accidents["with damage to people"] / reference["total registered vehicles"], '-',
-            label="Original Data", color=rgb.tue_blue)
-    ax.scatter(accidents["Year"], accidents["with damage to people"] / reference["total registered vehicles"], s=7,
-               color=rgb.tue_blue)
+    ax.plot(accidents["Year"], accidents["with damage to people"] / reference["total registered vehicles"], "-", label="Original Data", color=(*rgb.tue_blue, 0.6))
+    ax.scatter(accidents["Year"], accidents["with damage to people"] / reference["total registered vehicles"], s=7, color=rgb.tue_blue)
     ref_year = 1991
 
     # Linear Regression
     lr_log = LinearRegression()
-    x = (accidents["Year"] - ref_year + 1).values.reshape(-1, 1)[ref_year - 1991:-2]
-    y = (accidents["with damage to people"] / reference["total registered vehicles"])[ref_year - 1991:-2]
+    x = (accidents["Year"] - ref_year + 1).values.reshape(-1, 1)[ref_year - 1991 : -2]
+    y = (accidents["with damage to people"] / reference["total registered vehicles"])[ref_year - 1991 : -2]
     lr_log.fit(x, y)
     y_ = lr_log.predict(x)
-    ax.plot(accidents["Year"][ref_year - 1991:-2], lr_log.predict(x), '--',
-            label=r"Linear Regression ($y=mx+c$)." + f"\nMSE Err: {np.mean((y_ - y) ** 2) ** 0.5:.6f}", linewidth=1,
-            color=rgb.tue_orange)
+    ax.plot(accidents["Year"][ref_year - 1991 : -2], lr_log.predict(x), "--", label=r"Linear Regression ($y=mx+c$)." + f"\nMSE: {np.mean((y_ - y) ** 2) ** 0.5:.6f}", linewidth=1, color=rgb.tue_orange)
 
     # lr = LinearRegression()
     # x = [np.log((accidents["Year"]-ref_year+1).values[ref_year-1991:-2])]
@@ -152,17 +143,15 @@ if __name__ == '__main__':
     # y = (accidents["with damage to people"]/reference["total registered vehicles"])[ref_year-1991:-2]
     # lr.fit(x, np.log(y))
     # y_ = lr.predict(x)
-    # ax.plot(accidents["Year"][ref_year-1991:-2], np.e ** y_, label=r"Inverse Power Curve ($y=cx^{-m}$). ")# + f" MSE Err: {np.mean((np.e ** y_ - y)**2)**0.5:.5f}")
+    # ax.plot(accidents["Year"][ref_year-1991:-2], np.e ** y_, label=r"Inverse Power Curve ($y=cx^{-m}$). ")# + f" MSE: {np.mean((np.e ** y_ - y)**2)**0.5:.5f}")
 
     lr_log = LinearRegression()
-    x = [np.log((accidents["Year"] - ref_year + 1).values[ref_year - 1991:-2])]
+    x = [np.log((accidents["Year"] - ref_year + 1).values[ref_year - 1991 : -2])]
     x = np.array(x).reshape(-1, len(x))
-    y = (accidents["with damage to people"] / reference["total registered vehicles"])[ref_year - 1991:-2]
+    y = (accidents["with damage to people"] / reference["total registered vehicles"])[ref_year - 1991 : -2]
     lr_log.fit(x, y)
     y_ = lr_log.predict(x)
-    ax.plot(accidents["Year"][ref_year - 1991:-2], y_,
-            label=r"Log Curve ($y=ln(cx^{-m})$)." + f"\nMSE Err: {np.mean((y_ - y) ** 2) ** 0.5:.6f}",
-            color=rgb.tue_green)
+    ax.plot(accidents["Year"][ref_year - 1991 : -2], y_, label=r"Log Curve ($y=ln(cx^{-m})$)." + f"\nMSE: {np.mean((y_ - y) ** 2) ** 0.5:.6f}", color=rgb.tue_red)
 
     ax.set_xlabel("Year")
     ax.set_ylabel("Accidents with human injury \nper vehicle")
@@ -171,7 +160,6 @@ if __name__ == '__main__':
     ax.legend()
     plt.savefig("./export/Accidents-Damage-People.pdf")
     plt.show()
-
 
     # Figure 4 - Accidents Deaths street
     plt.rcParams.update(bundles.icml2022(column="half", nrows=1, ncols=1, usetex=False))
@@ -202,13 +190,10 @@ if __name__ == '__main__':
 
     ax = plt.axes()
 
-    ax.plot(accidents["Year"], death["inside cities"] / accidents["inside cities"], label="inside cities",
-            color=rgb.tue_blue)
+    ax.plot(accidents["Year"], death["inside cities"] / accidents["inside cities"], label="inside cities", color=rgb.tue_blue)
     ax.scatter(accidents["Year"], death["inside cities"] / accidents["inside cities"], s=7, color=rgb.tue_blue)
-    ax.plot(accidents["Year"], death["outside cities excl Autobahn"] / accidents["outside cities without Autobahn"],
-            label="outside cities", color=rgb.tue_red)
-    ax.scatter(accidents["Year"], death["outside cities excl Autobahn"] / accidents["outside cities without Autobahn"],
-               s=7, color=rgb.tue_red)
+    ax.plot(accidents["Year"], death["outside cities excl Autobahn"] / accidents["outside cities without Autobahn"], label="outside cities", color=rgb.tue_red)
+    ax.scatter(accidents["Year"], death["outside cities excl Autobahn"] / accidents["outside cities without Autobahn"], s=7, color=rgb.tue_red)
     ax.plot(accidents["Year"], death["Autobahn"] / accidents["on Autobahn"], label="on Autobahn", color=rgb.tue_green)
     ax.scatter(accidents["Year"], death["Autobahn"] / accidents["on Autobahn"], s=7, color=rgb.tue_green)
 
@@ -217,7 +202,7 @@ if __name__ == '__main__':
 
     ax2 = ax.twinx()
     for k, c in zip(keys, colors):
-        ax2.bar(accidents["Year"], accidents[k], color=(*c, 0.4))
+        ax2.bar(accidents["Year"], accidents[k], color=(*c, 0.3))
 
     ax.set_ylim(0, 0.06)
     ax2.set_ylim(0, 3e5)
@@ -228,7 +213,7 @@ if __name__ == '__main__':
     ax.set_ylabel("Death / accident")
     ax.set_xlabel("Year")
 
-    plt.savefig("./export/Accidents-Deaths-street_0.4alpha.pdf")
+    plt.savefig("./export/Accidents-Deaths-street_0.3alpha.pdf")
     plt.show()
 
     # Figure 5 - Accident Causes
@@ -252,14 +237,11 @@ if __name__ == '__main__':
         l.append(causes[col].values[2009 - 1991])
 
     bar2000 = ax.barh(cols, l, color=(0.5, 0.5, 0.5, 0.3), label="2009")
-    percs = {x: y for x, y in
-             zip(bar2000.datavalues, ((bar2019.datavalues - bar2000.datavalues) / bar2000.datavalues) * 100)}
-    ax.bar_label(bar2000, fmt=lambda x: f" {percs[x]:.1f}%" if percs[
-                                                                   x] < 0 else f" {''.join([' '] * int(percs[x] / 5))}{percs[x]:.1f}%",
-                 fontsize=7)
+    percs = {x: y for x, y in zip(bar2000.datavalues, ((bar2019.datavalues - bar2000.datavalues) / bar2000.datavalues) * 100)}
+    ax.bar_label(bar2000, fmt=lambda x: f" {percs[x]:.1f}%" if percs[x] < 0 else f" {''.join([' '] * int(percs[x] / 5))}{percs[x]:.1f}%")
     ax.set_xlabel("Number of accidents")
     ax.set_ylabel("Type of cause")
-    ax.set_xscale('log')
+    ax.set_xscale("log")
     ax.set_xlim(right=1.2e6)
 
     plt.legend()
@@ -288,11 +270,8 @@ if __name__ == '__main__':
         l.append(deaths[col].values[2010 - 1991])
 
     bar2000 = ax.barh(cols, l, color=(0.5, 0.5, 0.5, 0.3), label="2010")
-    percs = {x: y for x, y in
-             zip(bar2000.datavalues, ((bar2019.datavalues - bar2000.datavalues) / bar2000.datavalues) * 100)}
-    ax.bar_label(bar2000, fmt=lambda x: f" {percs[x]:.1f}%" if percs[
-                                                                   x] < 0 else f" {''.join([' '] * int(percs[x] / 5))}{percs[x]:.1f}%",
-                 fontsize=7)
+    percs = {x: y for x, y in zip(bar2000.datavalues, ((bar2019.datavalues - bar2000.datavalues) / bar2000.datavalues) * 100)}
+    ax.bar_label(bar2000, fmt=lambda x: f" {percs[x]:.1f}%" if percs[x] < 0 else f" {''.join([' '] * int(percs[x] / 5))}{percs[x]:.1f}%", fontsize=7)
     ax.set_xlabel("Number of deaths")
     ax.set_ylabel("Category")
     ax.set_xscale("log")
