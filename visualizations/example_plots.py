@@ -3,6 +3,9 @@ from calculator.DataLoader import DataContainer
 from matplotlib import pyplot as plt
 from tueplots import bundles
 
+### Due to the twisted nature of python you have to change the import of "from General_Calculator import ProbPair" to
+### "from calculator.General_Calculator import ProbPair" when using this script and revert it if using the main program
+
 def quick_multi_plot(years, data_name_pair, title="First Accident Probability", file_name=None):
     plt.rcParams.update(bundles.icml2022(column="half", usetex=False))
 
