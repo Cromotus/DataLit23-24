@@ -19,7 +19,7 @@
             "answer_options":{
                 "car":{"option_text":"Car","allowed_questions":["death", "age_group", "involved_persons"],"allowed_options":{"involved_persons":["cars","car male", "car female", "car 18-25", "car 25-65", "car over 65"],"age_group":["18-25"],"death":["car","car 18 to 25","male car driver","male car passenger","female car driver","female car passenger"]},"resulting_dataset":"None"},
                 "motorcycle":{"option_text":"Motorcycle","allowed_questions":["death", "involved persons"],"allowed_options":{"involved_persons":["motorbikes insurance plates", "motorbikes official plates"],"death":["motorbikes insurance plates","motorbikes official plates"]},"resulting_dataset":"None"},
-                "bike":{"option_text":"Bike","allowed_questions":["death", "involved persons"],"allowed_options":{"involved_persons":["bikes"], "death":["bike"]},"resulting_dataset":"None"},
+                "bike":{"option_text":"Bike","allowed_questions":["death", "involved persons"],"allowed_options":{"involved_persons":["bikes"], "death":["bikes"]},"resulting_dataset":"None"},
                 "pedestrian":{"option_text":"By foot","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["pedestrians"],"death":["pedestrians","pedestrians 65 or older","male pedestrian","female pedestrian"]},"resulting_dataset":"None"},
                 "truck":{"option_text":"Truck","allowed_questions":["death", "involved_persons"],"allowed_options":{"involved_persons":["trucks"],"death":["trucks"]},"resulting_dataset":"None"}
             }
