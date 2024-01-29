@@ -31,7 +31,7 @@ Then you have to add the filters for your data. They are structured as followed:
             "answer_options":{
                 "<Name of option>":{"option_text": "<"Text to display in UI">",
                                     "allowed_questions":[<list of questions that are allowed after anserwing this (some questions might excleude each other>],
-                                    "allowed_options":{},
+                                    "allowed_options":{<list[option key:<list[allowed answer_options]>]> (keep empty) to allow all},
                                     "resulting_dataset":"<file_name or empty if this answer does not immediately shows the answer>"},
                 "with damage to people":{"option_text":"damage to people","allowed_questions":[],"allowed_options":{},"resulting_dataset":"Accident Numbers.csv"},
             }
